@@ -15,13 +15,14 @@
         $(markup).hide().appendTo('body').fadeToggle(99);
         $("#confirm-dialog").dialog({
           resizable: false,
-          height:120,
+          height:200,
           width:350,
           modal: true,
           buttons: {
             "Confirm": function() {
                 if(typeof params.url == 'function') {
                   params.url();
+                  $('#confirm-dialog').dialog('close');
                   return;
                 }
                 document.location.href = params.url;
